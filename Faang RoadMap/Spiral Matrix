@@ -1,0 +1,102 @@
+Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+
+Example 1:
+
+Input:
+[
+ [ 1, 2, 3 ],
+ [ 4, 5, 6 ],
+ [ 7, 8, 9 ]
+]
+Output: [1,2,3,6,9,8,7,4,5]
+Example 2:
+
+Input:
+[
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9,10,11,12]
+]
+Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+
+class Solution {
+
+    public List<Integer> spiralOrder(int[][] matrix) {
+
+        List<Integer> list = new LinkedList<>();
+
+         if (matrix == null || matrix.length == 0) return list;
+
+        int n = matrix.length;
+
+        int m = matrix[0].length;
+
+        
+
+        int up =0;
+
+        int down = n-1;
+
+        int left  = 0;
+
+        int right = m-1;
+
+       // int size = list.size();
+
+       //  System.out.println("haha  "+ list.size());// // for debug
+
+        while(list.size()<n*m){
+
+            for(int j =left;j<=right && list.size()<n*m;j++){
+
+                list.add(matrix[up][j]);
+
+               // System.out.println("1st  " +list.size());// for debug
+
+            }
+
+            
+
+            
+
+            for(int i =up+1; i<=down-1 && list.size()<n*m;i++){
+
+                list.add(matrix[i][right]);
+
+               // System.out.println("2nd  "+ list.size());// // for debug
+
+            }
+
+            
+
+            for(int j =right;j>=left && list.size()<n*m;j--){
+
+                list.add(matrix[down][j]);
+
+            //    System.out.println("3rd  "+ list.size());// // for debug
+
+            }
+
+            for(int i =down-1;i>=up+1&& list.size()<n*m;i--){
+
+                list.add(matrix[i][left]);
+
+              //  System.out.println("4th  "+ list.size());// // for debug
+
+            }
+
+            
+
+            left++;right--;up++;down--;
+
+        }
+
+      
+
+        return list;
+
+    
+
+    }
+
+}
