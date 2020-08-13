@@ -1,0 +1,32 @@
+Merge two sorted Linked List
+
+
+Question Link :
+https://leetcode.com/problems/merge-two-sorted-lists/
+
+
+public class Solution {
+    public ListNode mergeTwoLists(ListNode A, ListNode B) {
+ListNode dummy = new ListNode(0);
+        ListNode head = dummy;
+        while(A!=null&&B!=null){
+            if(A.val<B.val){
+                dummy.next= A;
+                A = A.next;
+                
+            }else{
+                dummy.next = B;
+                B = B.next;
+            }
+            dummy = dummy.next;
+        }
+        
+        if(A!=null){
+            dummy.next = A;
+           // A = A.next;
+        }else{
+            dummy.next = B;
+           // B = B.next;
+        }
+        return head.next;
+}}
