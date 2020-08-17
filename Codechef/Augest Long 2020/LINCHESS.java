@@ -21,18 +21,29 @@ public class Main {
 
 class Naveen {
 
-    int n;
-    //int[]  arr;
+    int n,k;
+    int[]  arr;
     
 
     Naveen(FastScanner sc) {
     
          n = sc.nextInt();
-       //  arr = sc.arrayInt(n);
+         k = sc.nextInt();
+         arr = sc.arrayInt(n);
     }
 
     void solve(PrintWriter out) {
-      
+      int ans =-1;
+      int min = Integer.MAX_VALUE;
+for(int i =0;i<n;i++){
+if(k%arr[i]==0){
+    if(k/arr[i]<min){
+        ans = arr[i];
+        min = k/arr[i];
+    }
+}
+}
+out.println(ans);
 
 
        
