@@ -1,0 +1,21 @@
+https://leetcode.com/problems/reverse-integer/
+
+class Solution {
+    public int reverse(int x) {
+        
+        long rem;
+        long sum =0;
+       
+        
+        while(x!=0){
+            rem = x%10;
+            sum = sum*10+rem;
+            if(sum>Integer.MAX_VALUE||sum<Integer.MIN_VALUE)
+                return 0;
+            
+            x/=10;
+        }
+        
+        return (int)sum;
+    }
+}
