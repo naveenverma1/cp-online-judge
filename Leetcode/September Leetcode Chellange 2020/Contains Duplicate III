@@ -1,0 +1,53 @@
+  Contains Duplicate III
+
+
+
+Given an array of integers, find out whether there are two distinct indices i and j in the array such that the absolute difference between nums[i] and nums[j] is at most t and the absolute difference between i and j is at most k.
+
+ 
+
+Example 1:
+
+Input: nums = [1,2,3,1], k = 3, t = 0
+Output: true
+Example 2:
+
+Input: nums = [1,0,1,1], k = 1, t = 2
+Output: true
+Example 3:
+
+Input: nums = [1,5,9,1,5,9], k = 2, t = 3
+Output: false
+ 
+
+Constraints:
+
+0 <= nums.length <= 2 * 104
+-231 <= nums[i] <= 231 - 1
+0 <= k <= 104
+0 <= t <= 231 - 1
+
+
+solution
+
+class Solution {
+     public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+       if(nums == null || nums.length == 0 || k <= 0 || t < 0) return false;
+
+    int p1=0,p2=0;
+    while (p1<nums.length-1){
+        long tmp=(long)nums[p1]-nums[p2];
+        if (Math.abs(tmp)<=t&&p1!=p2)
+            return true;
+        if (p2-p1<k&&p2<nums.length-1)
+            p2++;
+        else {
+            p1++;
+            if(t!= 0) {
+                p2=p1+1;    
+            }
+        }
+    }
+    return false;
+}
+}
