@@ -1,2 +1,2 @@
 # cp-online-judge
-repo contains my solution on various online judge
+this repository contains my solution on various online judge
